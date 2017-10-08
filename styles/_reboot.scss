@@ -276,6 +276,7 @@ html [type="button"],
 [type="submit"] {
   cursor: pointer;
   -webkit-appearance: button;
+  background-color: transparent;
   &:focus {
     outline: none;
   }

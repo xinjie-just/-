@@ -7,6 +7,7 @@
         <title>锦之江软件</title>
         <meta name="keywords" content="专业的IT培训师,快速入门,高薪就业">
         <meta name="description" content="专业的IT培训师,快速入门,高薪就业,蜕变职场贵族你只差一次培训">
+        <link rel="stylesheet" href="styles/polyfill.object-fit.min.css">
         <link rel="stylesheet" href="styles/jzj.css">
     </head>
     <body>
@@ -27,6 +28,10 @@
                 </div>
             </div>
             <nav id="nav" role="navigation">
+                <h1>首页</h1>
+                <button id="menuButton" type="button" class="menu-button">
+                    <i id="menuIcon" class="menu-icon"></i>
+                </button>
                 <ul id="navList">
                     <li>
                         <a href="#" title="首页" class="active">首页</a>
@@ -62,16 +67,16 @@
                 </ol>
                 <div class="carousel-inner home-carousel-inner">
                     <div class="item active">
-                        <img src="images/1banner_home1.png" alt="First slide">
+                        <img src="images/1banner_home1.png" alt="First slide" class="object-fit">
                     </div>
                     <div class="item">
-                        <img src="images/1banner_home2.png" alt="Second slide">
+                        <img src="images/1banner_home2.png" alt="Second slide" class="object-fit">
                     </div>
                     <div class="item">
-                        <img src="images/1banner_home3.png" alt="Third slide">
+                        <img src="images/1banner_home3.png" alt="Third slide" class="object-fit">
                     </div>
                     <div class="item">
-                        <img src="images/1banner_home4.png" alt="Four slide">
+                        <img src="images/1banner_home4.png" alt="Four slide" class="object-fit">
                     </div>
                 </div>
             </div>
@@ -168,7 +173,7 @@
                     </div>
                     <div class="content">
                         <!--hasimg 表示含有图片的最新推荐动态,为tab切换方式-->
-                        <div class="hasimg">
+                        <div class="has-img">
                             <ul id="latestNewsRecommend" class="latest-news-recommend">
                                 <li class="active">
                                     <a href="#" title="新闻标题文字111111">
@@ -214,7 +219,7 @@
                                 <img src="" alt="最新推荐动态4">
                             </div>
                         </div>
-                        <ul class="noimg">
+                        <ul class="no-img">
                             <li>
                                 <a href="#" title="">
                                     <span>新闻标题不带图纯文字标题，标题的宽度320像素新闻标题不带图纯文字标题，标题的宽度320像素新闻标题不带图纯文字标题，标题的宽度320像素</span>
@@ -415,6 +420,7 @@
         </footer>
         <script src="scripts/jquery.min.js"></script>
         <script src="scripts/carousel.js"></script>
+        <script src="scripts/polyfill.object-fit.min.js"></script>
         <script src="scripts/jzj.js"></script>
         <script>
             $(function() {
@@ -445,6 +451,13 @@
                         $(this).siblings(".answer").show();
                         $(this).parent().siblings("li").children(".answer").hide();
                     }
+                });
+
+                // 轮播图大小 IE浏览器对替换内容(img,video等)object-fit不兼容的处理
+                objectFit.polyfill({
+                    selector: ".object-fit", // this can be any CSS selector
+                    fittype: "cover", // either contain, cover, fill or none
+                    disableCrossDomain: "true" // either 'true' or 'false' to not parse external CSS files.
                 });
             });
             // 图片加载完成
