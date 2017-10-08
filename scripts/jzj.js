@@ -26,6 +26,13 @@ if (h1Len > 4) {
     });
 }
 // 菜单
+function displayMenu() {
+    if (!($(window).outerWidth < 768)) {
+        $("##navList").show();
+    }else {
+        $("##navList").hide();
+    }
+}
 $("#menuButton").click(function(e){
     $("#navList").slideToggle(400);
     e.stopPropagation();
