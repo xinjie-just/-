@@ -514,6 +514,7 @@ label.error {
   }
   #header #nav #navList {
     display: block;
+    display: block;
     margin-right: auto;
     margin-left: auto;
   }
@@ -554,8 +555,8 @@ label.error {
     display: block;
     height: 40px;
     line-height: 40px;
-    padding-right: 2.375rem;
-    padding-left: 2.375rem;
+    padding-right: 2.2rem;
+    padding-left: 2.2rem;
     color: #fff;
   }
   #header #nav #navList li a:hover, #header #nav #navList li a.active {
@@ -1423,5 +1424,19 @@ label.error {
 
 /*回到顶部*/
 /*===关于我们===*/
+.about-main .about-banner img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 767px) {
+  .about-main .about-banner img {
+    max-width: none;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
 
 /*# sourceMappingURL=jzj.css.map */

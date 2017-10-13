@@ -1,7 +1,7 @@
 /**
  * Created by lixinjie on 2017/10/08.
  */
-// 给页面标题 .header h1 添加 letter-spacing
+// 给页面标题 #nav h1 添加 letter-spacing
 var h1Len = $("#nav h1").text().length;
 if (h1Len == 2) {
     $(".header h1").css({
@@ -25,21 +25,31 @@ if (h1Len > 4) {
         whiteSpace: "nowrap"
     });
 }
-// 菜单
-function displayMenu() {
-    if (!($(window).outerWidth < 768)) {
-        $("##navList").show();
-    }else {
-        $("##navList").hide();
-    }
-}
+
+// 手机端菜单的显示与隐藏
 $("#menuButton").click(function(e){
     $("#navList").slideToggle(400);
     e.stopPropagation();
+    $("#navList").click(function (e) {
+        e.stopPropagation();
+    });
+    $(document).click(function () {
+        $("#navList").slideUp(400);
+    });
 });
-$("#navList").click(function (e) {
-    e.stopPropagation();
+
+$(function () {
+    displayMenu();
 });
-$(document).click(function () {
-    $("#navList").slideUp(400);
+$(window).resize(function () {
+    displayMenu();
 });
+// 菜单显示与隐藏
+function displayMenu() {
+    var $width = $(window).outerWidth();
+    if (!($width < 768)) {
+        $("#navList").show();
+    }else {
+        $("#navList").hide();
+    }
+}

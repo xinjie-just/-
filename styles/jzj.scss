@@ -80,6 +80,7 @@
         display: none;
       }
       #navList {
+        display: block;
         @include center-content();
         &::before,
         &::after {
@@ -96,8 +97,8 @@
             display: block;
             height: $height;
             line-height: $height;
-            padding-right: 2.375rem;
-            padding-left: 2.375rem;
+            padding-right: 2.2rem;
+            padding-left: 2.2rem;
             color: #fff;
             &:hover,
             &.active {
@@ -946,4 +947,21 @@
 }
 
 /*===关于我们===*/
-
+.about-main {
+  .about-banner {
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      @media (max-width: 767px) {
+        & {
+          max-width: none;
+          width: 100%;
+          height: 120px;
+          object-fit: cover;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
