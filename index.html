@@ -7,7 +7,7 @@
         <title>锦之江软件</title>
         <meta name="keywords" content="专业的IT培训师,快速入门,高薪就业">
         <meta name="description" content="专业的IT培训师,快速入门,高薪就业,蜕变职场贵族你只差一次培训">
-        <link rel="stylesheet" href="styles/polyfill.object-fit.min.css">
+        <link rel="stylesheet" href="styles/polyfill.object-fit.css">
         <link rel="stylesheet" href="styles/jzj.css">
     </head>
     <body>
@@ -417,9 +417,16 @@
         </footer>
         <script src="scripts/jquery.min.js"></script>
         <script src="scripts/carousel.js"></script>
-        <script src="scripts/polyfill.object-fit.min.js"></script>
+        <script src="scripts/polyfill.object-fit.js"></script>
         <script src="scripts/jzj.js"></script>
         <script>
+            /*// IE浏览器对替换内容(img,video等)object-fit不兼容的处理
+            document.addEventListener('DOMContentLoaded', function () {
+                objectFit.polyfill({
+                    selector: '.object-fit',
+                    fittype: 'cover'
+                });
+            });*/
             $(function() {
                 // tab 切换(第一tab按钮对应第一tab内容)
                 for (var i = 0, tabCount = $(".latest-news-tab img").length; i < tabCount; i++) {
@@ -448,13 +455,6 @@
                         $(this).siblings(".answer").show();
                         $(this).parent().siblings("li").children(".answer").hide();
                     }
-                });
-
-                // 轮播图大小 IE浏览器对替换内容(img,video等)object-fit不兼容的处理
-                objectFit.polyfill({
-                    selector: ".object-fit", // this can be any CSS selector
-                    fittype: "cover", // either contain, cover, fill or none
-                    disableCrossDomain: "true" // either 'true' or 'false' to not parse external CSS files.
                 });
             });
             // 图片加载完成

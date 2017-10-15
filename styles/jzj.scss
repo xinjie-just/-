@@ -189,37 +189,33 @@
     -webkit-transition: .6s ease-in-out left;
     -o-transition: .6s ease-in-out left;
     transition: .6s ease-in-out left;
+    /*> img,
+    > a > img {
+      width: 100%;
+      object-fit: cover;
+      overflow: hidden;
+      @media (min-width: 1200px) {
+        height: 400px;
+      }
+      @media (min-width: 992px) and (max-width: 1199px) {
+        height: 246px;
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        height: 202px;
+      }
+      @media (max-width: 767px) {
+        height: 156px;
+      }
+    }*/
     > img,
     > a > img {
       display: block;
       max-width: 100%;
       height: auto;
-      @media (max-width: 767px) {
-        max-width: none;
-        width: 100%;
-        height: 12rem;
-        object-fit: cover;
-      }
+      line-height: 1;
     }
   }
 }
-/*@media (max-width: 767px) {
-  .about-carousel-inner {
-    position: static;
-    width: 100%;
-    overflow: hidden;
-    > .item {
-      > img,
-      > a > img {
-        display: block;
-        max-width: none;
-        width: 100%;
-        height: 24.3rem;
-        object-fit: cover;
-      }
-    }
-  }
-}*/
 @media all and (transform-3d), (-webkit-transform-3d) {
   .about-carousel-inner > .item {
     -webkit-transition: -webkit-transform .6s ease-in-out;
@@ -286,7 +282,6 @@
   bottom: 1.375rem;
   left: 50%;
   z-index: 15;
-  @include center-content();
   padding-left: 0;
   transform: translateX(-50%);
   list-style: none;
@@ -953,15 +948,129 @@
       display: block;
       max-width: 100%;
       height: auto;
-      @media (max-width: 767px) {
-        & {
-          max-width: none;
-          width: 100%;
-          height: 120px;
-          object-fit: cover;
-          overflow: hidden;
+    }
+  }
+  .about-main-container {
+    background-color: #f4f4f4;
+    padding-top: 1.875rem;
+    padding-bottom: 3.125rem;
+  }
+  section {
+    padding: 1.875rem 5.8% 1.125rem;
+    background-color: #fff;
+    @include center-content();
+    &:last-of-type {
+      padding-bottom: 1.875rem;
+    }
+    .heading {
+      $color: #d4d4d4;
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 3.2rem;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 1px;
+        background-color: $color;
+      }
+      h2 {
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: 70%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        background-color: #fff;
+        font-weight: normal;
+        @extend %ellipsis;
+        &::before {
+          z-index: 4;
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 6px;
+          height: 6px;
+          transform: translateY(-50%) rotate(-45deg);
+          color: $color;
+          border-top: 1px solid;
+          border-left: 1px solid;
+          transform-origin: center;
+        }
+        &::after {
+          z-index: 4;
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          width: 6px;
+          height: 6px;
+          transform: translateY(-50%) rotate(45deg);
+          color: $color;
+          border-top: 1px solid;
+          border-right: 1px solid;
+          transform-origin: center;
+        }
+        span {
+          display: block;
+          line-height: 1.5;
+          text-align: center;
+          @extend %ellipsis;
+          &.cn {
+            font-size: 1.25rem;
+            color: $text-color;
+          }
+          &.en {
+            font-size: 14px;
+            color: $especial-color;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .content {
+      p,
+      div {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+        color: #333;
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 10px auto;
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
         }
       }
     }
   }
 }
+
+/*公司简介*/
+.about-intro-container {
+}
+
+
