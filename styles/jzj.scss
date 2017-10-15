@@ -941,24 +941,93 @@
 
 }
 
-/*===关于我们===*/
-.about-main {
-  .about-banner {
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-  }
-  .about-main-container {
-    background-color: #f4f4f4;
-    padding-top: 1.875rem;
-    padding-bottom: 3.125rem;
-  }
-  section {
-    padding: 1.875rem 5.8% 1.125rem;
+/*公共部分*/
+/*内容主要部分容器*/
+.main-container {
+  background-color: #f4f4f4;
+  padding-top: 1.875rem;
+  padding-bottom: 3.125rem;
+  .main-container-content {
     background-color: #fff;
     @include center-content();
+    //面包屑导航
+    .breadcrumbs {
+      $size: 60px;
+      position: relative;
+      height: $size;
+      line-height: $size;
+      font-size: 0;
+      @include center-content();
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1rem;
+        color: $especial-color;
+        margin-right: .5rem;
+        i {
+          font-size: 1.2rem;
+          margin-right: .7rem;
+        }
+      }
+      ol {
+        display: inline-block;
+        vertical-align: middle;
+        height: $size;
+        line-height: $size;
+        font-size: 1rem;
+        li {
+          position: relative;
+          display: inline-block;
+          vertical-align: middle;
+          height: $size;
+          line-height: $size;
+          padding-left: 20px;
+          color: $text-color;
+          &:first-child {
+            padding-left: 0;
+          }
+          &:last-child {
+            padding-left: 25px;
+            &:before {
+              content: "";
+            }
+          }
+          &:before {
+            content: ">";
+            position: absolute;
+            top: 0;
+            right: -18px;
+          }
+          a {
+            display: block;
+            color: #666;
+            padding-right: 5px;
+            padding-left: 5px;
+            &.icon-home {
+              font-size: 24px;
+              color: #999;
+            }
+            &:hover {
+              color: $especial-color;
+            }
+          }
+        }
+      }
+    }
+    //页面标题
+    h2 {
+      margin-bottom: 10px;
+      color: $text-color;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+  }
+}
+
+/*===关于我们===*/
+.about-main-container-content {
+  section {
+    padding: 1.875rem 5.8% 1.125rem;
     &:last-of-type {
       padding-bottom: 1.875rem;
     }
@@ -1069,8 +1138,152 @@
   }
 }
 
-/*公司简介*/
-.about-intro-container {
+/*===报名咨询===*/
+.apply-main-container-content {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  .contact {
+    margin-top: 27px;
+    @extend .clearfix;
+    span {
+      display: block;
+      float: left;
+      font-size: 14px;
+      color: $text-color;
+      margin-right: 2.5rem;
+      margin-bottom: .5rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
+      i {
+        display: inline-block;
+        width: 18px;
+        text-align: center;
+        font-size: 16px;
+        margin-right: 10px;
+        color: #d91c77;
+      }
+      a {
+        color: $text-color;
+      }
+    }
+  }
+  .map {
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
+    width: 100%;
+    height: 18.75rem;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+  //留言咨询
+  .apply-form {
+    padding-bottom: 2.25rem;
+    > div {
+      $width: 82px;
+      $height: 36px;
+      $border-radius: 2px;
+      $margin-right: 10px;
+      margin-bottom: 10px;
+      @extend .clearfix;
+      &.submit {
+        margin-top: 20px;
+      }
+      > label {
+        position: relative;
+        display: block;
+        float: left;
+        width: $width;
+        height: $height;
+        line-height: $height;
+        margin-right: $margin-right;
+        padding-left: 12px;
+        font-size: $font-size - 2;
+        color: #333;
+        &.required {
+          &:before {
+            content: "*";
+            position: absolute;
+            left: 0;
+            font-size: $font-size;
+            color: $main-color;
+          }
+        }
+      }
+      > input,
+      > textarea {
+        display: block;
+        float: left;
+        border: 1px solid #d4d4d4;
+        border-radius: $border-radius;
+        font-size: $font-size - 2;
+        color: #999;
+        padding-left: 1em;
+      }
+      > input {
+        width: 180px;
+        height: $height;
+        line-height: $height;
+      }
+      > textarea {
+        width: 620px;
+        max-width: 620px;
+        min-width: 500px;
+        max-height: 120px;
+        line-height: 18px;
+        padding: .7em 1em;
+        resize: none;
+      }
+      @media (max-width: 767px) {
+        > label,
+        > input,
+        > textarea {
+          float: none;
+        }
+        > input,
+        > textarea {
+          width: 100%;
+          max-width: 100%;
+          min-width: 100%;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        > textarea {
+          width: calc(100% - #{$width} - #{$margin-right});
+          max-width: calc(100% - #{$width} - #{$margin-right});
+          min-width: calc(100% - #{$width} - #{$margin-right});
+        }
+      }
+      &.submit {
+        button {
+          display: block;
+          margin-left: $width + $margin-right;
+          width: 140px;
+          height: $height + 4;
+          line-height: $height + 4;
+          text-align: center;
+          background-color: $main-color;
+          color: #fff;
+          padding-left: .5em;
+          letter-spacing: .5em;
+          border-radius: $height + 4;
+          &:hover {
+            background-color: darken($main-color, 2%);
+          }
+          @media (max-width: 767px) {
+            & {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 
