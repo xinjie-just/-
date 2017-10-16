@@ -53,3 +53,20 @@ function displayMenu() {
         $("#navList").hide();
     }
 }
+
+// 为文章中的图片设置一些限制
+if ($("article img[width]")) {
+    $("article img").removeAttr("width");
+}
+if ($("article img[height]")) {
+    $("article img").removeAttr("height");
+}
+$("article img").css({
+    display: "block",
+    maxWidth: "100%",
+    height: "auto",
+    margin: "15px auto"
+});
+
+/*分享*/
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","weixin","renren"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","weixin","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];

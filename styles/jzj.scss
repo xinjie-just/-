@@ -30,7 +30,7 @@
         a {
           color: $text-color;
           &:hover {
-            color: $main-color;
+            color: $especial-color;
           }
           &:not(:last-of-type) {
             margin-right: .7rem;
@@ -470,7 +470,7 @@
       padding-right: 1em;
       padding-left: 1em;
       &:hover {
-        color: $main-color;
+        color: $especial-color;
       }
     }
   }
@@ -1429,7 +1429,7 @@
         h3 {
           a {
             &:hover {
-              color: $main-color;
+              color: $especial-color;
             }
           }
         }
@@ -1475,6 +1475,385 @@
           white-space: normal;
         }
       }
+    }
+  }
+}
+
+/*===最新动态===*/
+
+/*分页*/
+.pagination-wrapper {
+  text-align: center;
+  margin-top: 1.8rem;
+}
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+  > li {
+    display: inline;
+    > a,
+    > span {
+      position: relative;
+      float: left;
+      padding: 6px 12px;
+      margin-left: -1px;
+      line-height: 1.42857143;
+      text-decoration: none;
+      color: $text-color;
+      border: 1px solid #d4d4d4;
+      background-color: #fff;
+      &:hover,
+      &:focus {
+        z-index: 2;
+        color: #fff;
+        border-color: $main-color;
+        background-color: $main-color;
+      }
+    }
+    &:first-child {
+      > a,
+      > span {
+        margin-left: 0;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+  }
+  > .active {
+    > a,
+    > span {
+      background-color: $main-color;
+      border-color: $main-color;
+      color: #fff;
+      &:hover,
+      &:focus {
+        z-index: 3;
+        cursor: default;
+        color: #fff;
+        border-color: $main-color;
+        background-color: $main-color;
+      }
+    }
+  }
+  > .disabled {
+    > a,
+    > span {
+      &:hover,
+      &:focus {
+        color: #777;
+        cursor: not-allowed;
+        background-color: #fff;
+        border-color: #ddd;
+      }
+    }
+  }
+}
+.news-main-container-content {
+  padding: 0 1.5rem 1.875rem;
+  .news-classify {
+    $width: 320px; // 右侧宽度
+    margin-top: 10px;
+    @extend .clearfix;
+    .news-classify-left {
+      float: left;
+      width: calc(100% - #{$width} - 1.875rem);
+      .news-list {
+        li {
+          padding: 0 0 1rem 10px;
+          border-bottom: 1px dotted #999;
+          &:not(:last-of-type) {
+            margin-bottom: 1.25rem;
+          }
+          .heading {
+            position: relative;
+            width: 100%;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: -10px;
+              transform: translateY(-50%) rotate(-45deg);
+              width: 5px;
+              height: 5px;
+              background-color: $main-color;
+            }
+            a {
+              display: block;
+              @extend .clearfix;
+            }
+            h3 {
+              float: left;
+              font-size: 1rem;
+              color: $text-color;
+              padding-right: 1em;
+              width: calc(100% - 6rem);
+              @extend %ellipsis;
+              @include transition();
+            }
+            time {
+              float: right;
+              text-align: right;
+              font-size: 1rem;
+              color: #666;
+              @include transition();
+            }
+          }
+          p {
+            font-size: .875rem;
+            line-height: 1.8em;
+            max-height: 3.6em;
+            @include line-clamp();
+          }
+        }
+      }
+    }
+    .news-classify-right {
+      float: right;
+      width: $width;
+      > div {
+        &:not(:last-of-type) {
+          margin-bottom: 2.5rem;
+        }
+        h3 {
+          background-color: $especial-color;
+          padding: 12px 20px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          font-size: 1rem;
+          color: #fff;
+        }
+        ul {
+          padding: 6px 20px;
+          li {
+            height: 34px;
+            line-height: 33px;
+            font-size: 14px;
+            &:not(:last-of-type) {
+              border-bottom: 1px solid #ccc;
+            }
+            a {
+              display: block;
+              color: $text-color;
+              @extend %ellipsis;
+              @include transition();
+            }
+          }
+        }
+      }
+      .latest-class {
+        li {
+          font-size: 0;
+          strong,
+          time,
+          span {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 14px;
+            @extend %ellipsis;
+            @include transition();
+          }
+          strong {
+            width: calc(100% - 82px - 50px);
+            color: inherit;
+            font-weight: normal;
+            padding-right: 1em;
+          }
+          time {
+            width: 82px;
+            color: inherit;
+          }
+          span {
+            width: 50px;
+            text-align: right;
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .news-main-container-content {
+    .news-classify {
+      .news-classify-left {
+        .news-list {
+          li {
+            .heading {
+              a {
+                &:hover {
+                  time,
+                  h3 {
+                    color: $especial-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .news-classify-right {
+        > div {
+          ul {
+            li {
+              a {
+                &:hover {
+                  color: $especial-color;
+                }
+              }
+            }
+          }
+        }
+        .latest-class {
+          li {
+            strong {
+              &:hover {
+                color: $especial-color;
+              }
+            }
+            time {
+              &:hover {
+                color: $especial-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .news-main-container-content {
+    .news-classify {
+      .news-classify-left {
+        float: none;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        .news-list {
+      }
+      }
+      .news-classify-right {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/*===文章详情页===*/
+.bdsharebuttonbox {
+  span {
+    float: left;
+    font-size: 14px;
+    line-height: 24px;
+    height: 24px;
+    margin: 6px 6px 6px 0;
+    color: #666;
+  }
+}
+article {
+  padding-top: 1.25rem;
+  margin-top: 8px;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  color: $text-color;
+  h2 {
+    font-size: 1.25rem !important;
+    color: #134383 !important;
+    line-height: 1.5 !important;
+    margin-bottom: 5px !important;
+  }
+  time {
+    display: block;
+    font-size: 14px;
+    color: #999;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto 0;
+  }
+  img + img {
+    margin-top: 8px;
+  }
+  p,
+  div {
+    line-height: 26px;
+    word-wrap: break-word;
+    margin-top: 10px;
+  }
+  img {
+    & + p,
+    & + div {
+      margin-top: 10px;
+    }
+  }
+  div {
+    > p,
+    > div {
+      margin-top: 5px;
+    }
+  }
+  img {
+    & + div {
+      div,
+      p {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+/*翻页*/
+.page {
+  margin-top: 3rem;
+  @extend .clearfix;
+  .page-pre,
+  .page-next {
+    color: $text-color;
+    line-height: 2;
+    font-size: 14px;
+    width: 45%;
+    @extend %ellipsis;
+    a {
+      color: $especial-color;
+    }
+  }
+  .page-pre {
+    float: left;
+    text-align: left;
+  }
+  .page-next {
+    float: right;
+    text-align: right;
+  }
+}
+@media (max-width: 767px) {
+  .page {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    .page-pre,
+    .page-next {
+      width: 100%;
+    }
+    .page-pre {
+      float: none;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .page-next {
+      float: none;
+      text-align: left;
     }
   }
 }
