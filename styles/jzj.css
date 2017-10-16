@@ -326,11 +326,11 @@ ul {
 }
 
 /* ===关于浮动=== */
-.clearfix:before, #header .header-top:before, .classes-news-container .classes-news-list:before, .classes-news-container .classes-news-list li .info:before, .latest-news-container .heading:before, .f-a-q-container:before, .environment-container .environment-img-list:before, .partner-container .partner-img-list:before, .apply-main-container-content .contact:before, .apply-main-container-content .apply-form > div:before {
+.clearfix:before, #header .header-top:before, .classes-news-container .classes-news-list:before, .classes-news-container .classes-news-list li .info:before, .latest-news-container .heading:before, .f-a-q-container:before, .environment-container .environment-img-list:before, .partner-container .partner-img-list:before, .apply-main-container-content .contact:before, .apply-main-container-content .apply-form > div:before, .course-main-container-content .course-list li:before {
   content: "";
   display: table;
 }
-.clearfix:after, #header .header-top:after, .classes-news-container .classes-news-list:after, .classes-news-container .classes-news-list li .info:after, .latest-news-container .heading:after, .f-a-q-container:after, .environment-container .environment-img-list:after, .partner-container .partner-img-list:after, .apply-main-container-content .contact:after, .apply-main-container-content .apply-form > div:after {
+.clearfix:after, #header .header-top:after, .classes-news-container .classes-news-list:after, .classes-news-container .classes-news-list li .info:after, .latest-news-container .heading:after, .f-a-q-container:after, .environment-container .environment-img-list:after, .partner-container .partner-img-list:after, .apply-main-container-content .contact:after, .apply-main-container-content .apply-form > div:after, .course-main-container-content .course-list li:after {
   content: "";
   display: table;
   clear: both;
@@ -361,7 +361,7 @@ label:hover {
 
 .classes-news-container .classes-news-list li .type .course,
 .classes-news-container .classes-news-list li .type time,
-.classes-news-container .classes-news-list li .type .status, .about-main-container-content section .heading h2, .about-main-container-content section .heading h2 span {
+.classes-news-container .classes-news-list li .type .status, .about-main-container-content section .heading h2, .about-main-container-content section .heading h2 span, .course-main-container-content .course-list .teaching-info h4, .course-main-container-content .course-list .teaching-info time, .course-main-container-content .course-list .course-info h3 a, .course-main-container-content .course-list .course-info time, .course-main-container-content .course-list .course-info .address {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1760,6 +1760,202 @@ label.error {
 @media (max-width: 767px) {
   .apply-main-container-content .apply-form > div.submit button {
     margin-left: 0;
+  }
+}
+
+/*===公开课===*/
+.course-main-container-content {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 1200px) {
+  .course-main-container-content {
+    width: 1200px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .course-main-container-content {
+    width: 970px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .course-main-container-content {
+    width: 750px;
+  }
+}
+@media (max-width: 767px) {
+  .course-main-container-content {
+    width: 96%;
+  }
+}
+.course-main-container-content .slogan {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 2rem;
+}
+.course-main-container-content .course-list li {
+  margin-bottom: 1.25rem;
+  background: #fff;
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.4s linear 0s;
+}
+.course-main-container-content .course-list .teaching-info {
+  float: left;
+  width: 30%;
+  background-color: rgba(23, 143, 138, 0.8);
+  color: #fff;
+  padding: 1.625rem;
+}
+.course-main-container-content .course-list .teaching-info h4 {
+  font-size: 1.125rem;
+  margin-bottom: 1.875rem;
+}
+.course-main-container-content .course-list .teaching-info time {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.course-main-container-content .course-list .teaching-info strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.375;
+}
+.course-main-container-content .course-list .teaching-info .label {
+  margin-top: 1rem;
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+.course-main-container-content .course-list .teaching-info .label span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  font-size: 1rem;
+  padding: 3px 10px;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background-color: #d91e77;
+  transform: rotate(-30deg);
+}
+.course-main-container-content .course-list .course-info {
+  float: right;
+  width: 65%;
+}
+.course-main-container-content .course-list .course-info h3 a {
+  display: block;
+  color: #333;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: .875rem;
+  transition: all 0.4s linear 0s;
+}
+.course-main-container-content .course-list .course-info .heading {
+  display: block;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+.course-main-container-content .course-list .course-info p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5em;
+  height: 3em;
+  margin-bottom: 1.25rem;
+  /*多行文本省略*/
+  display: -webkit-box !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.course-main-container-content .course-list .course-info time {
+  display: block;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+.course-main-container-content .course-list .course-info .address {
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 1.625rem;
+}
+.course-main-container-content .course-list .course-info .working,
+.course-main-container-content .course-list .course-info .over,
+.course-main-container-content .course-list .course-info .wait {
+  display: inline-block;
+  height: 2.125rem;
+  line-height: 2.125rem;
+  padding-right: 2em;
+  padding-left: 2em;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 2.125rem;
+}
+.course-main-container-content .course-list .course-info .working {
+  background-color: #d91e77;
+}
+.course-main-container-content .course-list .course-info .over {
+  background-color: #ccc;
+}
+.course-main-container-content .course-list .course-info .wait {
+  background-color: #2cc586;
+}
+
+@media (min-width: 1200px) {
+  .course-main-container-content .course-list li:hover {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+  }
+  .course-main-container-content .course-list .course-info {
+    float: right;
+    width: 65%;
+  }
+  .course-main-container-content .course-list .course-info h3 a:hover {
+    color: #d91e77;
+  }
+}
+@media (max-width: 767px) {
+  .course-main-container-content .course-list .teaching-info {
+    float: none;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .course-main-container-content .course-list .teaching-info h4 {
+    overflow: visible;
+    white-space: normal;
+  }
+  .course-main-container-content .course-list .teaching-info time {
+    overflow: visible;
+    white-space: normal;
+  }
+  .course-main-container-content .course-list .teaching-info .label:empty {
+    height: 0;
+    margin-top: 0;
+  }
+  .course-main-container-content .course-list .course-info {
+    float: none;
+    width: 100%;
+  }
+  .course-main-container-content .course-list .course-info h3 a {
+    overflow: visible;
+    white-space: normal;
+  }
+  .course-main-container-content .course-list .course-info time {
+    overflow: visible;
+    white-space: normal;
+  }
+  .course-main-container-content .course-list .course-info .address {
+    overflow: visible;
+    white-space: normal;
   }
 }
 
