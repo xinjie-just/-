@@ -952,11 +952,12 @@
     @include center-content();
     //面包屑导航
     .breadcrumbs {
-      $size: 60px;
+      $size: 30px;
       position: relative;
-      height: $size;
       line-height: $size;
       font-size: 0;
+      padding-top: 15px;
+      padding-bottom: 15px;
       @include center-content();
       span {
         display: inline-block;

@@ -1430,9 +1430,10 @@ label.error {
 }
 .main-container .main-container-content .breadcrumbs {
   position: relative;
-  height: 60px;
-  line-height: 60px;
+  line-height: 30px;
   font-size: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -1471,16 +1472,16 @@ label.error {
 .main-container .main-container-content .breadcrumbs ol {
   display: inline-block;
   vertical-align: middle;
-  height: 60px;
-  line-height: 60px;
+  height: 30px;
+  line-height: 30px;
   font-size: 1rem;
 }
 .main-container .main-container-content .breadcrumbs ol li {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  height: 60px;
-  line-height: 60px;
+  height: 30px;
+  line-height: 30px;
   padding-left: 20px;
   color: #333;
 }
