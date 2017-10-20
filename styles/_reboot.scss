@@ -240,6 +240,12 @@ hr {
 
 
 /* ===表单=== */
+// 鼠标禁用状态
+:disabled,
+[disabled],
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
 
 //改变字体属性为继承
 //在 Firefox 和 Safari 中为下列元素移除外边距

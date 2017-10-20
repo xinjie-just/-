@@ -205,6 +205,12 @@ hr {
 }
 
 /* ===表单=== */
+:disabled,
+[disabled],
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
 button,
 input,
 select,
